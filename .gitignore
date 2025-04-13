@@ -1,0 +1,26 @@
+# Ambiente virtual
+.venv/
+env/
+
+# Banco de dados
+*.sqlite3
+
+# Arquivos do Python compilados
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Configurações de IDE
+.idea/
+.vscode/
+
+# Arquivos sensíveis
+.env
+*.env
+settings_local.py
+*.log
+
+# Backup e dados temporários
+*.bak
+*.tmp
+.DS_Store
