@@ -1,0 +1,6 @@
+body {
+    background-image: url("/static/estoque/img/fundo_01.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

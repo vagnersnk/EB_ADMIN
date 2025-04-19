@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Estoque, Categoria, Fornecedor, Produto, Entrada
+from django.contrib.admin import AdminSite
 
 @admin.register(Estoque)
 class EstoqueAdmin(admin.ModelAdmin):
@@ -29,3 +30,25 @@ class EntradaAdmin(admin.ModelAdmin):
     search_fields = ('produto__nome_produto', 'fornecedor__nome_fornecedor')
     list_filter = ('data_entrada',)
     date_hierarchy = 'data_entrada'
+
+class CustomAdminSite(AdminSite):
+    site_header = "Admin Customizado"
+    site_title = "Administração"
+    index_title = "Painel de Controle"
+
+    class Media:
+        css = {
+            'all': ('estoque/css/style.css',)  # Caminho correto para o arquivo CSS
+        }
+
+# Instância personalizada do AdminSite
+admin_site = CustomAdminSite(name='custom_admin')
+# Registra os modelos com o admin_site personalizado
+admin_site.register(Estoque, EstoqueAdmin)
+admin_site.register(Categoria, CategoriaAdmin)
+admin_site.register(Fornecedor, FornecedorAdmin)
+admin_site.register(Produto, ProdutoAdmin)
+admin_site.register(Entrada, EntradaAdmin)
+
+# Se você não tiver a seguinte linha, adicione ela
+admin.site = admin_site

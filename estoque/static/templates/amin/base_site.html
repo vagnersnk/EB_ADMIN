@@ -1,0 +1,13 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}PAINEL DA LOJA VAGNER{% endblock %}
+
+{% block branding %}
+  <h1 id="site-name"><a href="{% url 'admin:index' %}">PAINEL DA LOJA VAGNER</a></h1>
+{% endblock %}
+
+{% block extrahead %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'estoque/css/style.css' %}">
+{% endblock %}
