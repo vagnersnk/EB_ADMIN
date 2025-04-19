@@ -23,6 +23,12 @@ class ProdutoAdmin(admin.ModelAdmin):
     search_fields = ('nome_produto', 'fabricante')
     list_filter = ('status',)
 
+    class Media:
+        css = {
+            'all': ('estoque/css/style.css',)
+        }
+        js = ('estoque/js/script.js',)
+
 @admin.register(Entrada)
 class EntradaAdmin(admin.ModelAdmin):
     # Aqui mostra os campos
@@ -32,14 +38,11 @@ class EntradaAdmin(admin.ModelAdmin):
     date_hierarchy = 'data_entrada'
 
 class CustomAdminSite(AdminSite):
-    site_header = "Admin Customizado"
+    site_header = "Vagner"
     site_title = "Administração"
     index_title = "Painel de Controle"
 
-    class Media:
-        css = {
-            'all': ('estoque/css/style.css',)  # Caminho correto para o arquivo CSS
-        }
+
 
 # Instância personalizada do AdminSite
 admin_site = CustomAdminSite(name='custom_admin')

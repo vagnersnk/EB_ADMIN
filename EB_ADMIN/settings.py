@@ -110,10 +110,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'estoque/static',
-]
-
+STATICFILES_DIRS = [BASE_DIR / "estoque" / "static"]
 DEBUG=True
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 try:

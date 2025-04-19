@@ -1,6 +1,8 @@
 body {
-    background-image: url("/static/estoque/img/fundo_01.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #007bff;
 }
