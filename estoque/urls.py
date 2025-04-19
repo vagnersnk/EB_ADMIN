@@ -8,7 +8,7 @@ from django.views.generic import RedirectView
 from django.urls import re_path
 from django.conf.urls.static import static
 from django.conf import settings
-from estoque.admin import admin_site
+
 
 
 @login_required(login_url='/login/')
@@ -17,7 +17,6 @@ def redirect_to_admin(request):
 
 urlpatterns = [
     path('', redirect_to_admin),  # Redireciona a raiz para o admin
-    path('admin/', admin_site.urls),  # O Django admin.
-    re_path(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico', permanent=True)),
-    # outras urls do seu projeto
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    re_path(r'^favicon\.ico$', RedirectView.as_view(url='static/favicon.ico', permanent=True)),
+
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
