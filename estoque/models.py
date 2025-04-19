@@ -51,7 +51,7 @@ class Entrada(models.Model):
     data_entrada=models.DateField()
     produto = models.ForeignKey(Produto, on_delete=models.SET_NULL, null=True, blank=True,related_name='entradas_produto')
     fornecedor = models.ForeignKey(Fornecedor, on_delete=models.SET_NULL, null=True, blank=True)
-    unidade_entrada = models.ForeignKey(Produto, on_delete=models.CASCADE, null=True, blank=True,related_name='entradas_unidade')
+    unidade_entrada = models.CharField(max_length=5, null=True, blank=True)
     quantidade = models.PositiveIntegerField()
     valor_unitario = models.DecimalField(max_digits=10, decimal_places=2)
     validade = models.DateField(null=True, blank=True)

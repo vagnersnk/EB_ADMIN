@@ -29,7 +29,12 @@ class EntradaAdmin(admin.ModelAdmin):
     search_fields = ('produto__nome_produto', 'fornecedor__nome_fornecedor')
     list_filter = ('data_entrada',)
     date_hierarchy = 'data_entrada'
+    exclude = ('unidade_entrada',)
 
+    def save_model(self, request, obj, form, change):
+        if obj.produto:
+            obj.unidade_entrada = obj.produto.unidade_entrada  # Puxa do produto selecionado
+        super().save_model(request, obj, form, change)
 
 
 
